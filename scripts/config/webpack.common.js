@@ -15,7 +15,28 @@ const getCssLoaders = (importLoaders) => [
     options: {
       modules: false,
       sourceMap: isDevelopment,
+      // 用于配置 css-loader作用 import前有几个 loader
       importLoaders,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: [
+          require('postcss-flexbugs-fixes'),
+          isProduction && [
+            'postcss-preset-env',
+            {
+              autoprefixer: {
+                grid: true,
+                flexbox: 'no-2009',
+              },
+              stage: 3,
+            },
+          ],
+        ].filter(Boolean),
+      },
     },
   },
 ]
@@ -40,6 +61,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: getCssLoaders(1),
+      },
+      {
+        test: /\.less$/,
+        use: [
+          ...getCssLoaders(2),
+          {
+            loader: 'less-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|js)$/,

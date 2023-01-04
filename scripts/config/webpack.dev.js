@@ -1,5 +1,4 @@
 // merge
-const Webpack = require('webpack')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
@@ -27,8 +26,14 @@ module.exports = merge(common, {
     minimize: false,
     minimizer: [],
     splitChunks: {
-      chunks: 'all',
-      minSize: 0,
+      // 使用 cacheGroups 提取模块
+      cacheGroups: {
+        common: {
+          chunks: 'async' | 'all' | 'initial',
+          minSize: 0,
+          minChunks: 1,
+        },
+      },
     },
   },
 })
