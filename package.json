@@ -41,6 +41,7 @@
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
     "fork-ts-checker-webpack-plugin": "^7.2.14",
     "html-webpack-plugin": "^5.5.0",
     "ip": "^1.1.8",
@@ -70,7 +71,9 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.20.7",
-    "core-js": "3"
+    "core-js": "3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "browserslist": [
     ">0.2%",
