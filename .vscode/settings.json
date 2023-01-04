@@ -1,0 +1,21 @@
+{
+  "css.validate": false, // 禁用vscode本身的css校验功能
+  "less.validate": false, // 禁用vscode本身的less校验功能
+  "scss.validate": false, // 禁用vscode本身的scss校验功能
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ], // eslint 校验的文件格式
+  "editor.formatOnSave": true, // 自动格式化代码，我们使用的是prettier
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true, // 保存自动修复 eslint报错（有些报错必须手动修复）
+    "source.fixAll.stylelint": true // 保存自动修复 stylelint报错，也就是css报错
+  },
+  "search.exclude": { // 搜索文件时排除的文件夹
+    "**/node_modules": true,
+    "dist": true,
+    "build": true
+  },
+}

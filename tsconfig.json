@@ -1,0 +1,63 @@
+{
+  // 编译选项，跟编译ts相关
+  "compilerOptions": {
+    // 指定编译的ECMAScript目标版本。
+    // 枚举值："ES3"， "ES5"， "ES6"/ "ES2015"， "ES2016"， "ES2017"，"ESNext"。
+    // 默认值： “ES3”,ESNext包含提案的内容
+    "target": "ES5",
+    // 指定生成哪个模块系统代码。枚举值："None"， "CommonJS"， "AMD"， "System"， "UMD"，
+    // "ES6"， "ES2015"，"ESNext"。默认值根据--target选项不同而不同，当target设置为ES6时，
+    // 默认module为“ES6”，否则为“commonjs”
+    "module": "ESNext",
+    // 编译过程中需要引入的库文件的列表。比如没有esnext，Set、Reflect等api会被ts报错
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    // 是否允许编译javascript文件。如果设置为true，js后缀的文件也会被typescript进行编译
+    "allowJs": true,
+    // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "jsx": "react",
+    // 下面详解 
+    "isolatedModules": true,
+    // 用于指定是否启用严格的类型检查，不过到底具体怎么严格我也不知道
+    "strict": true,
+    // 下面详解
+    "moduleResolution": "node",
+    // 下面详解
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    // 下面详解
+    "baseUrl": "./",
+    // 路径别名，跟webpack alias一样，注意你是ts的话，必须webpack和ts都配
+    "paths": {
+      "Src/*": [
+        "src/*"
+      ],
+      "Components/*": [
+        "src/components/*"
+      ],
+      "Utils/*": [
+        "src/utils/*"
+      ]
+    },
+    // 以下两个是跟装饰器功能有关，experimentalDecorators是 是否开启装饰器
+    // emitDecoratorMetadata是装饰器里的一个功能，如果你使用依赖注入，有可能需要开启它
+    // 依赖注入不懂的同学可以略过，后面会写一篇关于学习nestjs前置知识的文章
+    // 会讲怎么使用emitDecoratorMetadata实现依赖注入
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // 禁止对同一个文件的不一致的引用。主要是文件大小写必须一致，比如引用a.js和A.js是不一样的
+    "forceConsistentCasingInFileNames": true,
+    // 忽略所有的声明文件（ `*.d.ts`）的类型检查
+    "skipLibCheck": true,
+    // 下面详解
+    "allowSyntheticDefaultImports": true,
+    // 不生成输出文件
+    "noEmit": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

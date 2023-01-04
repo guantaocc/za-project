@@ -1,0 +1,20 @@
+# // 表明是最顶层的配置文件，发现设为 true 时，才会停止查找.editorconfig 文件
+root = true
+
+[*]
+# // tab 为 hard-tabs，space 为 soft-tabs 表示缩进符号，我们选的空格
+indent_style = space
+# // 设置整数表示规定每级缩进的列数和 soft-tabs 的空格数。
+# // 如果设定为 tab，则会使用 tab_width 的值（如果已指定）
+indent_size = 2
+# // 定义换行符，支持 lf、cr 和 crlf
+end_of_line = lf
+# // 编码格式，支持 latin1、utf-8、utf-8-bom、utf-16be 和 utf-16le，不建议使用 uft-8-bom
+charset = utf-8
+# // 设为 true 表示会除去换行行首的任意空白字符，false 反之
+trim_trailing_whitespace = true
+# // 设为 true 表明使文件以一个空白行结尾，false 反之
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
